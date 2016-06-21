@@ -6,8 +6,9 @@ RUN apk --update upgrade && \
 
 RUN mkdir -p /var/run/lighttpd/
 
-COPY entrypoint.sh lighttpd.conf /root/
-CMD  /root/entrypoint.sh
+COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
+COPY entrypoint create_digest /usr/bin/
+CMD  entrypoint
 
 ENV PORT 8080
 ENV DOCUMENT_ROOT /var/www

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+USER=$1
+PASS=$2
+REALM=${3:-}
+
+HASH=$(printf '%s:%s:%s' "$USER" "$REALM" "$PASS" | md5sum | cut -b -32)
+echo "$USER:$REALM:$HASH"
+

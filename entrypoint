@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo $DIGEST > "$DIGEST_FILE"
+exec lighttpd -D -f /etc/lighttpd/lighttpd.conf
+
